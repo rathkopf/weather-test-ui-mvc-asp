@@ -1,10 +1,15 @@
-﻿using System.Web;
+﻿#region usings
+
 using System.Web.Optimization;
+
+#endregion
 
 namespace weather_test_ui_mvc_asp
 {
     public class BundleConfig
     {
+        #region Methods
+
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -22,9 +27,14 @@ namespace weather_test_ui_mvc_asp
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                                                                  "~/Scripts.App/LocationVm.js", "~/Scripts.App/ForecastVm.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
+
+        #endregion
     }
 }
