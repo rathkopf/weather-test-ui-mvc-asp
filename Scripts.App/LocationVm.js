@@ -11,6 +11,7 @@ var LocationVm = /** @class */ (function () {
                     var geoData = $.parseJSON(data);
                     _this.longitude(geoData.results[0].location.lng);
                     _this.latitude(geoData.results[0].location.lat);
+                    _this.address(geoData.results[0].formatted_address);
                 }
                 else {
                     _this.errorMsg("Error retrieving geolocation of address.");
