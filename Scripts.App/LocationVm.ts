@@ -8,9 +8,11 @@
             , (data: any, status: string) => {
                 if (status === "success") {
                     const geoData = $.parseJSON(data);
-                    this.longitude(geoData.results[0].location.lng);
-                    this.latitude(geoData.results[0].location.lat);
-                    this.address(geoData.results[0].formatted_address);
+                    if (geoData.results.length > 0) {
+                        this.longitude(geoData.results[0].location.lng);
+                        this.latitude(geoData.results[0].location.lat);
+                        this.address(geoData.results[0].formatted_address);
+                    }
                 } else {
                     this.errorMsg("Error retrieving geolocation of address.");
                 }

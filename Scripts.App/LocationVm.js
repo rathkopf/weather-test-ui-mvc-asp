@@ -9,9 +9,11 @@ var LocationVm = /** @class */ (function () {
             $.get("api/Geo?address=" + _this.address(), function (data, status) {
                 if (status === "success") {
                     var geoData = $.parseJSON(data);
-                    _this.longitude(geoData.results[0].location.lng);
-                    _this.latitude(geoData.results[0].location.lat);
-                    _this.address(geoData.results[0].formatted_address);
+                    if (geoData.results.length > 0) {
+                        _this.longitude(geoData.results[0].location.lng);
+                        _this.latitude(geoData.results[0].location.lat);
+                        _this.address(geoData.results[0].formatted_address);
+                    }
                 }
                 else {
                     _this.errorMsg("Error retrieving geolocation of address.");
