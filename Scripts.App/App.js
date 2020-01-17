@@ -19,7 +19,7 @@ var App = /** @class */ (function () {
                         _this.errorMsg("Error retrieving geolocation of address.");
                     }
                 });
-            }, 2000);
+            }, 100);
         };
         this.locationVm.latitude.subscribe(this.LocationChanged);
         this.locationVm.longitude.subscribe(this.LocationChanged);

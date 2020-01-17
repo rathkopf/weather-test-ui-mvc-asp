@@ -3,25 +3,43 @@
 <div>
     <input style="width:70%" data-bind="value:locationVm.address" />
     <button data-bind="click: locationVm.getLatLong" style="padding-left: 10px">Submit</button>
-    <button v-on:click="locateByIp" style="padding-left: 10px">Find Me</button>
-    (<i>
-        <span data-bind="text:locationVm.latitude"></span>,
-        <span data-bind="text:locationVm.longitude"></span>
-    </i>)
+    <!-- <button style="padding-left: 10px">Find Me</button> -->
+    <!--(<i>
+            <span data-bind="text:locationVm.latitude"></span>,
+            <span data-bind="text:locationVm.longitude"></span>
+        </i>)-->
 </div>
-<hr style="border:1px solid black" />
+    <hr style="border:1px solid black" />
 
-<div data-bind="if:forecastVmObs">
-    <h4>Currently:</h4>
-    <span data-bind="text:forecastVmObs().CurrentSummary"></span>
-    and <span data-bind="text:forecastVmObs().CurrentTemp"></span>f
-</div>
+    <div data-bind="if:forecastVmObs">
+        <div data-bind="with:forecastVmObs()">
+            <h4>Currently:</h4>
+            <span data-bind="text:CurrentSummary"></span>
+            and <span data-bind="text:CurrentTemp"></span>f
+            <table width="100%">
+                <thead style="background-color:lightgray">
+                <td width="50%">Summary</td>
+                <td width="25%">Low Temp</td>
+                <td width="25%">High Temp</td></thead>
+                <tbody data-bind="foreach:Future">
+                    <tr>
+                        <td>
+                            <span data-bind="text: DayOfWeek"></span>
+                            : <span data-bind="text:Summary"></span>
+                        </td>
+                        <td><span data-bind="text:LowTemp"></span></td>
+                        <td><span data-bind="text:HiTemp"></span></td>
+                    </tr>
+                </tbody>
 
+            </table>
+        </div>
+    </div>
 
-@section scripts {
-    @Scripts.Render("~/bundles/app")
-    <script>
-        var app = new App();
-        ko.applyBindings(app);
-    </script>
-}
+    @section scripts {
+        @Scripts.Render("~/bundles/app")
+        <script>
+            var app = new App();
+            ko.applyBindings(app);
+        </script>
+    }

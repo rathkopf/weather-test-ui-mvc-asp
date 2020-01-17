@@ -8,5 +8,5 @@
 class ForecastVm {
     CurrentSummary=ko.observable("");
     CurrentTemp=ko.observable("");
-    Future: KnockoutObservableArray<DailyForecast>=ko.observableArray();
+    Future =ko.observableArray<DailyForecast>();
 }
