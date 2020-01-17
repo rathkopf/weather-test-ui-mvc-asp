@@ -4,8 +4,8 @@
     <input style="width:70%" />
     <button v-on:click="getLatLong" style="padding-left: 10px">Submit</button>
     <button v-on:click="locateByIp" style="padding-left: 10px">Find Me</button>
-
     <br />
+    <span data-bind="text:locationVm.latitude"></span>
     </div>
 <hr />
 layout the input and the buttons
@@ -31,5 +31,8 @@ Lay out the weeks forcast
 
 @section scripts {
     @Scripts.Render("~/bundles/app")
-
+    <script>
+        var app = new App();
+        ko.applyBindings(app);
+    </script>
 }
