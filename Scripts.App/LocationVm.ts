@@ -7,7 +7,7 @@
         $.get("api/Geo?address=" + this.address()
             , (data: any, status: string) => {
                 if (status === "success") {
-                    var geoData = $.parseJSON(data);
+                    const geoData = $.parseJSON(data);
                     this.longitude(geoData.results[0].location.lng);
                     this.latitude(geoData.results[0].location.lat);
                 } else {

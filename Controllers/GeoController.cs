@@ -12,7 +12,7 @@ namespace weather_test_ui_mvc_asp.Controllers
     {
         #region Constants
 
-        const string VUE_APP_GEOCODIO_API = "555a56c0a00e1f67aac65eae056ac15f1ef0e0e";
+        const string GEOCODIO_API = "555a56c0a00e1f67aac65eae056ac15f1ef0e0e";
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace weather_test_ui_mvc_asp.Controllers
             var restClient = new RestClient("https://api.geocod.io/v1.4/");
 
             var request = new RestRequest("geocode");
-            request.AddParameter("api_key", VUE_APP_GEOCODIO_API);
+            request.AddParameter("api_key", GEOCODIO_API);
             request.AddParameter("q", encodedAddress);
             var result = restClient.Execute(request);
 

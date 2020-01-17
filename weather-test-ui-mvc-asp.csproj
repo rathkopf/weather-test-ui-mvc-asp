@@ -270,6 +270,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ForecastController.cs" />
     <Compile Include="Controllers\GeoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -289,6 +290,9 @@
     <Content Include="Scripts.App\App.js">
       <DependentUpon>App.ts</DependentUpon>
     </Content>
+    <Content Include="Scripts.App\ForecastVm.js">
+      <DependentUpon>ForecastVm.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts.App\LocationVm.js">
       <DependentUpon>LocationVm.ts</DependentUpon>
     </Content>
@@ -299,6 +303,9 @@
     </Content>
     <Content Include="Scripts.App\LocationVm.js.map">
       <DependentUpon>LocationVm.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts.App\ForecastVm.js.map">
+      <DependentUpon>ForecastVm.js</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -356,6 +363,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts.App\App.ts" />
+    <TypeScriptCompile Include="Scripts.App\ForecastVm.ts" />
     <TypeScriptCompile Include="Scripts.App\LocationVm.ts" />
   </ItemGroup>
   <ItemGroup>

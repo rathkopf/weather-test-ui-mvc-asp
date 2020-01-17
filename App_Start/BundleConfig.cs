@@ -29,8 +29,9 @@ namespace weather_test_ui_mvc_asp
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                                                                   "~/Scripts/knockout-{version}.js"
-                                                                  , "~/Scripts/knockout.mapping-latest.js"
-                                                                  , "~/Scripts.App/LocationVm.js"
+                                                                , "~/Scripts/knockout.mapping-latest.js"
+                                                                , "~/Scripts.App/LocationVm.js"
+                                                                , "~/Scripts.App/ForecastVm.js"
                                                                 , "~/Scripts.App/App.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
