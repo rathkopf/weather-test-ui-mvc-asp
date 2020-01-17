@@ -2,7 +2,7 @@ var App = /** @class */ (function () {
     function App() {
         var _this = this;
         this.locationVm = new LocationVm();
-        this.forecastVm = new ForecastVm();
+        this.forecastVmObs = ko.observable();
         this.errorMsg = ko.observable("");
         this._changeDelay = 0;
         this.LocationChanged = function (newValue) {
@@ -13,7 +13,7 @@ var App = /** @class */ (function () {
             _this._changeDelay = setTimeout(function () {
                 $.get("api/forecast?lat=" + _this.locationVm.latitude() + "&lng=" + _this.locationVm.longitude(), function (data, status) {
                     if (status === "success") {
-                        var forecastData = $.parseJSON(data);
+                        _this.forecastVmObs(ko.mapping.fromJS(data));
                     }
                     else {
                         _this.errorMsg("Error retrieving geolocation of address.");

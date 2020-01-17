@@ -1,36 +1,22 @@
 ﻿<h1>Weather Forecast</h1>
 <h4>Address:</h4>
 <div>
-    <input style="width:70%" data-bind="value:locationVm.address"/>
+    <input style="width:70%" data-bind="value:locationVm.address" />
     <button data-bind="click: locationVm.getLatLong" style="padding-left: 10px">Submit</button>
     <button v-on:click="locateByIp" style="padding-left: 10px">Find Me</button>
-    <br />
     (<i>
         <span data-bind="text:locationVm.latitude"></span>,
         <span data-bind="text:locationVm.longitude"></span>
     </i>)
-    </div>
-<hr />
-layout the input and the buttons
+</div>
+<hr style="border:1px solid black" />
 
+<div data-bind="if:forecastVmObs">
+    <h4>Currently:</h4>
+    <span data-bind="text:forecastVmObs().CurrentSummary"></span>
+    and <span data-bind="text:forecastVmObs().CurrentTemp"></span>f
+</div>
 
-lay out the current temperature
-
-Lay out the weeks forcast
-
-
-
-<li>
-    // work on setting up a simple typescript class and binding it's values
-    // to something in the ui.
-</li>
-
-<li>
-    // make a simple object in the view that will hold the data
-    // Display this data in the view so it looks like the mockup image
-    // work on code to change the data after fetching
-    // be cool to get mocha unit testing into the project
-</li>
 
 @section scripts {
     @Scripts.Render("~/bundles/app")

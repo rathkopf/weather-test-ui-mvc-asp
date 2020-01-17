@@ -1,6 +1,6 @@
 ﻿class App {
     locationVm=new LocationVm();
-    forecastVm=new ForecastVm();
+    forecastVmObs: KnockoutObservable<ForecastVm>= ko.observable();
     errorMsg = ko.observable("");
     private _changeDelay: number=0;
 
@@ -18,7 +18,7 @@
                 $.get(`api/forecast?lat=${this.locationVm.latitude()}&lng=${this.locationVm.longitude()}`
                     , (data: any, status: string) => {
                         if (status === "success") {
-                            const forecastData = $.parseJSON(data);
+                            this.forecastVmObs(ko.mapping.fromJS(data));
                         } else {
                             this.errorMsg("Error retrieving geolocation of address.");
                         }
