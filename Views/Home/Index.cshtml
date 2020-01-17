@@ -1,11 +1,14 @@
 ﻿<h1>Weather Forecast</h1>
 <h4>Address:</h4>
 <div>
-    <input style="width:70%" />
-    <button v-on:click="getLatLong" style="padding-left: 10px">Submit</button>
+    <input style="width:70%" data-bind="value:locationVm.address"/>
+    <button data-bind="click: locationVm.getLatLong" style="padding-left: 10px">Submit</button>
     <button v-on:click="locateByIp" style="padding-left: 10px">Find Me</button>
     <br />
-    <span data-bind="text:locationVm.latitude"></span>
+    (<i>
+        <span data-bind="text:locationVm.latitude"></span>,
+        <span data-bind="text:locationVm.longitude"></span>
+    </i>)
     </div>
 <hr />
 layout the input and the buttons
