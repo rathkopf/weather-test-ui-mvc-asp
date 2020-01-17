@@ -9,7 +9,6 @@ var LocationVm = /** @class */ (function () {
             $.get("api/Geo?address=" + _this.address(), function (data, status) {
                 if (status === "success") {
                     var geoData = $.parseJSON(data);
-                    console.log(geoData);
                     _this.longitude(geoData.results[0].location.lng);
                     _this.latitude(geoData.results[0].location.lat);
                 }

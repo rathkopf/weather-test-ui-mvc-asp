@@ -8,7 +8,6 @@
             , (data: any, status: string) => {
                 if (status === "success") {
                     var geoData = $.parseJSON(data);
-                    console.log(geoData);
                     this.longitude(geoData.results[0].location.lng);
                     this.latitude(geoData.results[0].location.lat);
                 } else {
